@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/'.Telegram::getAccessToken().'/webhook', function () {
-    Telegram::commandsHandler(true);
-});
+Route::post('/'.Telegram::getAccessToken().'/webhook', 'TelegramController@webhook');

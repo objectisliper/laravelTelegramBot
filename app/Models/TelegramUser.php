@@ -25,10 +25,11 @@ class TelegramUser extends Model
 
 
     public $fillable = [
+        'id',
+        'name',
         'phone',
         'photo',
         'comment',
-        'name'
     ];
 
     /**
