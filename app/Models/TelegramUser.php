@@ -40,7 +40,7 @@ class TelegramUser extends Model
     protected $casts = [
         'id' => 'integer',
         'phone' => 'string',
-        'photo' => 'string',
+        'photo' => 'blob',
         'comment' => 'string',
         'name' => 'string'
     ];

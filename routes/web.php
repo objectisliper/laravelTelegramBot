@@ -18,3 +18,7 @@ Route::get('/', function () {
 });
 
 Route::post('/'.Telegram::getAccessToken().'/webhook', 'TelegramController@webhook');
+
+Route::get('/change_photo', 'TelegramController@index');
+
+Route::post('/change_photo', 'TelegramController@savePhoto');

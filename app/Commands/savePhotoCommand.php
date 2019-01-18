@@ -2,18 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: object
- * Date: 17.01.19
- * Time: 22:15
+ * Date: 18.01.19
+ * Time: 16:50
  */
 
 namespace App\Commands;
 
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
-
-
-class StartCommand extends Command
+class savePhotoCommand extends Command
 {
 
     /**
@@ -31,17 +30,17 @@ class StartCommand extends Command
      */
     public function handle($arguments)
     {
+
+        // This will update the chat status to typing...
+        $this->replyWithChatAction(['action' => Actions::TYPING]);
         // This will send a message using `sendMessage` method behind the scenes to
         // the user/chat id who triggered this command.
         // `replyWith<Message|Photo|Audio|Video|Voice|Document|Sticker|Location|ChatAction>()` all the available methods are dynamically
         // handled when you replace `send<Method>` with `replyWith` and use the same parameters - except chat_id does NOT need to be included in the array.
-        $this->replyWithMessage(['text' => 'Привет, добро пожаловать! Я справлюсь с тестовым заданием 🙂']);
-
-        // This will update the chat status to typing...
-        $this->replyWithChatAction(['action' => Actions::TYPING]);
-
-        // Reply with the commands list
-        $this->replyWithMessage(['text' => "Давай познакомимся, как тебя зовут?"]);
+        Telegram::sendMessage([
+            'chat_id' => isset($arguments) ? $arguments : $this->update->getMessage()->getChat()->all()['id'],
+            'text' => 'Поздравляю, теперь пришли мне фото'
+        ]);
     }
 
 }

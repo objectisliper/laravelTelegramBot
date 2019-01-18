@@ -23,14 +23,6 @@ class TelegramUserController extends Controller
      */
     public function index(Content $content)
     {
-        $response = Telegram::getMe();
-
-        $botId = $response->getId();
-        $firstName = $response->getFirstName();
-        $username = $response->getUsername();
-
-
-
         return $content
             ->header('Index')
             ->description('description')
@@ -91,12 +83,18 @@ class TelegramUserController extends Controller
         $grid = new Grid(new TelegramUser);
 
         $grid->id('Id');
+        $grid->name('Name');
         $grid->phone('Phone');
-        $grid->photo('Photo');
+        $grid->photo('Photo')->display(function ($path) {
+            $domain = $_SERVER['SERVER_NAME'];
+            return "<img src='http://$domain:8000/$path' alt=''>";
+        });;
         $grid->comment('Comment');
         $grid->created_at('Created at');
         $grid->updated_at('Updated at');
-        $grid->name('Name');
+        $grid->tools(function ($tools) {
+            $tools->append('<a class="btn btn-success" href="/change_photo">Change photo to send</a>');
+        });
 
         return $grid;
     }
@@ -132,7 +130,7 @@ class TelegramUserController extends Controller
         $form = new Form(new TelegramUser);
 
         $form->mobile('phone', 'Phone');
-        $form->textarea('photo', 'Photo');
+        $form->image('photo', 'Photo');
         $form->textarea('comment', 'Comment');
         $form->text('name', 'Name');
 

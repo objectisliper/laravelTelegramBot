@@ -11,6 +11,7 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index');
-    $router->get('/auth/telegram_users', 'TelegramUserController@index');
+    $router->resource('/auth/telegram_users', 'TelegramUserController');
+
 
 });

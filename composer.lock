@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "133c9c8f88139548c2bb1336871026fd",
-    "content-hash": "12e50a231e00ef13f2d1b478e197cf0a",
+    "hash": "395b8787207aadb3fc2ad6f4cf196805",
+    "content-hash": "8a6ed50c64c20f6f03e28595d8ff7bf7",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -972,27 +972,26 @@
         },
         {
             "name": "irazasyed/telegram-bot-sdk",
-            "version": "v3.0.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/irazasyed/telegram-bot-sdk.git",
-                "reference": "fc452f11a6509616f26e279ad36339e1b9032472"
+                "reference": "2824278370b231dfc9172104db8acc23fc5ade94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/irazasyed/telegram-bot-sdk/zipball/fc452f11a6509616f26e279ad36339e1b9032472",
-                "reference": "fc452f11a6509616f26e279ad36339e1b9032472",
+                "url": "https://api.github.com/repos/irazasyed/telegram-bot-sdk/zipball/2824278370b231dfc9172104db8acc23fc5ade94",
+                "reference": "2824278370b231dfc9172104db8acc23fc5ade94",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "~6.1",
-                "guzzlehttp/psr7": "~1.3",
-                "illuminate/support": "~5.1",
-                "league/event": "^2.1",
-                "php": "^7.0"
+                "guzzlehttp/guzzle": "~6.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.1"
+                "phpspec/prophecy": "^1.5",
+                "phpunit/phpunit": "^4.8 || ^5.0"
             },
             "suggest": {
                 "illuminate/container": "Hold dependencies to be injected in commands constructors",
@@ -1001,15 +1000,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Telegram\\Bot\\Laravel\\TelegramServiceProvider"
-                    ],
-                    "aliases": {
-                        "Telegram": "Telegram\\Bot\\Laravel\\Facades\\Telegram"
-                    }
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -1039,7 +1030,7 @@
                 "telegram php",
                 "telegram sdk"
             ],
-            "time": "2018-01-19 13:51:25"
+            "time": "2017-01-05 09:01:54"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1454,56 +1445,6 @@
             "time": "2018-06-18 15:04:16"
         },
         {
-            "name": "league/event",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thephpleague/event.git",
-                "reference": "d2cc124cf9a3fab2bb4ff963307f60361ce4d119"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/event/zipball/d2cc124cf9a3fab2bb4ff963307f60361ce4d119",
-                "reference": "d2cc124cf9a3fab2bb4ff963307f60361ce4d119",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "henrikbjorn/phpspec-code-coverage": "~1.0.1",
-                "phpspec/phpspec": "^2.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "League\\Event\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Frank de Jonge",
-                    "email": "info@frenky.net"
-                }
-            ],
-            "description": "Event package",
-            "keywords": [
-                "emitter",
-                "event",
-                "listener"
-            ],
-            "time": "2018-11-26 11:52:41"
-        },
-        {
             "name": "league/flysystem",
             "version": "1.0.49",
             "source": {
@@ -1813,6 +1754,56 @@
                 "random"
             ],
             "time": "2018-07-02 15:55:56"
+        },
+        {
+            "name": "predis/predis",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2016-06-16 16:22:20"
         },
         {
             "name": "prettus/l5-repository",
@@ -3373,6 +3364,65 @@
             "time": "2019-01-03 09:07:35"
         },
         {
+            "name": "symfony/yaml",
+            "version": "v3.4.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "554a59a1ccbaac238a89b19c8e551a556fd0e2ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/554a59a1ccbaac238a89b19c8e551a556fd0e2ea",
+                "reference": "554a59a1ccbaac238a89b19c8e551a556fd0e2ea",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "conflict": {
+                "symfony/console": "<3.4"
+            },
+            "require-dev": {
+                "symfony/console": "~3.4|~4.0"
+            },
+            "suggest": {
+                "symfony/console": "For validating YAML files using the lint command"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-01-01 13:45:19"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.1",
             "source": {
@@ -3468,6 +3518,47 @@
                 "environment"
             ],
             "time": "2018-10-30 17:29:25"
+        },
+        {
+            "name": "zarincheg/telegram-bot-dialogs",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zarincheg/telegram-bot-dialogs.git",
+                "reference": "cc2e881ce07f3733435a5b05952957da4326d762"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zarincheg/telegram-bot-dialogs/zipball/cc2e881ce07f3733435a5b05952957da4326d762",
+                "reference": "cc2e881ce07f3733435a5b05952957da4326d762",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.2",
+                "irazasyed/telegram-bot-sdk": "^2.0",
+                "php": ">=5.5.9",
+                "predis/predis": "~1.0",
+                "symfony/yaml": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BotDialogs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kirill Zorin",
+                    "email": "zarincheg@gmail.com"
+                }
+            ],
+            "description": "Telegram Bot API PHP SDK extension that allows to implement dialogs in bots",
+            "homepage": "https://github.com/zarincheg/telegram-bot-dialogs",
+            "time": "2017-11-19 18:28:22"
         }
     ],
     "packages-dev": [
@@ -5233,8 +5324,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "infyomlabs/adminlte-templates": 20,
         "infyomlabs/laravel-generator": 20,
-        "infyomlabs/adminlte-templates": 20
+        "zarincheg/telegram-bot-dialogs": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
