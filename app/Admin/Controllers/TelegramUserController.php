@@ -90,6 +90,7 @@ class TelegramUserController extends Controller
             return "<img src='http://$domain:8000/$path' alt=''>";
         });;
         $grid->comment('Comment');
+        $grid->category('Category');
         $grid->created_at('Created at');
         $grid->updated_at('Updated at');
         $grid->tools(function ($tools) {
