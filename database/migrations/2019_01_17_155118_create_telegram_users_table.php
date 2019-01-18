@@ -17,7 +17,7 @@ class CreateTelegramUsersTable extends Migration
             $table->increments('id');
             $table->char('name',200);
             $table->char('phone',20)->nullable(true);
-            $table->binary('photo')->nullable(true);
+            $table->text('photo')->nullable(true);
             $table->text('comment')->nullable(true);
             $table->timestamps();
         });
