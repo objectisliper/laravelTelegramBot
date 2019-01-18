@@ -36,7 +36,7 @@ class TelegramController
             TelegramUser::where('id', $telegram['from']['id'])->update(['category' => $telegram['text']]);
             (new savePhotoCommand())->handle($decoded_telegram->chat->id);
 
-        } elseif (isset($telegram['text']) && !$this->isCommand($telegram['text']) && ctype_space($telegram['text']) ) {
+        } elseif (isset($telegram['text']) && !$this->isCommand($telegram['text']) && strpos($telegram['text'], " ") !== false ) {
 
             TelegramUser::where('id', $telegram['from']['id'])->update(['comment' => $telegram['text']]);
 
