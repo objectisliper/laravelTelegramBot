@@ -9,6 +9,7 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class TelegramUserController extends Controller
 {
@@ -22,6 +23,14 @@ class TelegramUserController extends Controller
      */
     public function index(Content $content)
     {
+        $response = Telegram::getMe();
+
+        $botId = $response->getId();
+        $firstName = $response->getFirstName();
+        $username = $response->getUsername();
+
+
+
         return $content
             ->header('Index')
             ->description('description')

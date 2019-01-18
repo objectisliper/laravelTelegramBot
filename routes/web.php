@@ -11,6 +11,12 @@
 |
 */
 
+use Telegram\Bot\Laravel\Facades\Telegram;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::post('/'.Telegram::getAccessToken().'/webhook', function () {
+    Telegram::commandsHandler(true);
 });
